@@ -1,0 +1,12 @@
+~ start
+Jonathan: Welcome Knight of Rivia! I've been waiting for you. Thank you for coming to save us.
+Jonathan: What do you want to know?
+- Where are the Monsters?
+	Jonathan: Just keep going on this road and you will see them.
+- What mosters out there?
+	Jonathan: Many kinds of monsters have attacked our village. But there are mainly slimes in the area.
+- Leave Jonathan
+	You: I'll just go and kill'em.
+	=> END
+Jonathan: Bye! Good Luck!
+=> END

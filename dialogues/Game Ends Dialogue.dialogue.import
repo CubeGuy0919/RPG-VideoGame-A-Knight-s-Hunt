@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://u2qweg02wsgl"
+path="res://.godot/imported/Game Ends Dialogue.dialogue-c2d21edbb3f5029c80ad366940cabb2b.tres"
+
+[deps]
+
+source_file="res://dialogues/Game Ends Dialogue.dialogue"
+dest_files=["res://.godot/imported/Game Ends Dialogue.dialogue-c2d21edbb3f5029c80ad366940cabb2b.tres"]
+
+[params]
+
+defaults=true

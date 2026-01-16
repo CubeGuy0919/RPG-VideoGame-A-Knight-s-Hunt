@@ -1,0 +1,11 @@
+~ start
+Nathan: Hi Traveller!
+Nathan: Here are some choices.
+- First one
+	Nathan: OIIII
+- Second one
+	Nathan: HEELp
+- Start again => start
+- End the conversation => END
+Nathan: Bye bye!
+=> END

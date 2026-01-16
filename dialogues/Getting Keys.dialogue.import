@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://c33tqd4sibekd"
+path="res://.godot/imported/Getting Keys.dialogue-df26a50eee8dea9d9776969a5415bf88.tres"
+
+[deps]
+
+source_file="res://dialogues/Getting Keys.dialogue"
+dest_files=["res://.godot/imported/Getting Keys.dialogue-df26a50eee8dea9d9776969a5415bf88.tres"]
+
+[params]
+
+defaults=true

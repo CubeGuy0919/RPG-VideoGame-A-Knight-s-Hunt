@@ -1,0 +1,14 @@
+~ start
+Gatekeeper Guard: Welcome Traveller To NeverLand! If you want to enter the village, you have to answer a riddle. 
+Gatekeeper Guard: "I have many teeth, but no mouth to eat. I have no legs, but I help you move through the street. I can open the way to a kingdom or a cage, What am I?"
+- A Car Key
+	Gatekeeper Guard: That's not it, kid.
+- A Key
+	Gatekeeper Guard: Nice work Knight! You guessed it.
+	Gatekeeper Guard:: Pass then, Knight. But remember: some doors are locked for a reason.
+- A Doorkeeper
+	Gatekeeper Guard: That's not it, kid.
+- I dunno
+	Gatekeeper Guard: Well then, next time you should be smarter, My Son!
+	=> END
+=> END
