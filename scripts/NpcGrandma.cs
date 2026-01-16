@@ -30,7 +30,7 @@ public partial class NpcGrandma : CharacterBody2D
         
         // Connect to the addon's signal to know when to stop animating
         Node dm = GetNode("/root/DialogueManager");
-        dm.Connect("dialogue_ended", Callable.From((Resource res) => EndDialogue()));
+        dm.Connect("dialogue_ended", Callable.From((Resource res) => EndDialogueWithWin()));
     }
 
     private void OnBodyEntered(Node2D body)
@@ -81,18 +81,15 @@ private void Talk()
     // Log for debugging to make sure the resource path is correct
     GD.Print("Resource Path: " + DialogueResource.ResourcePath);
 
-    // Call 'show_dialogue_balloon' (this is the standard method in the addon)
-    // Argument 1: The Resource file
-    // Argument 2: The Title string ("start")
     dm.Call("show_dialogue_balloon", DialogueResource, DialogueStart);
 }   
 
-    public void EndDialogue()
+    public void EndDialogueWithWin()
     {
         _isTalking = false;
         
         _sprite.Play("idle");
 
-        playerNode.WinGame();
+        //playerNode.WinGame();
     }
 }
