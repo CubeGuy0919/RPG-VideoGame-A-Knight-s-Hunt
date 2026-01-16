@@ -22,7 +22,7 @@ public partial class Player : CharacterBody2D
 
     public override void _Ready()
     {
-        GlobalPosition = new Vector2(1000, 290); //-40
+        GlobalPosition = new Vector2(-40, 290); //-40
         sprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
         hitbox = GetNode<Area2D>("Hitbox");
 
