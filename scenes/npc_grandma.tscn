@@ -1,0 +1,74 @@
+[gd_scene load_steps=11 format=3 uid="uid://bl1ssm3dyood8"]
+
+[ext_resource type="Script" uid="uid://bh5q1k21buuf2" path="res://scripts/NpcGrandma.cs" id="1_ubhnq"]
+[ext_resource type="Resource" uid="uid://u2qweg02wsgl" path="res://dialogues/Game Ends Dialogue.dialogue" id="2_je8xx"]
+[ext_resource type="Texture2D" uid="uid://dqxg1q6xqwyaq" path="res://art/characters/NPCs/Villager_Grandma.png" id="2_ubhnq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_je8xx"]
+atlas = ExtResource("2_ubhnq")
+region = Rect2(0, 0, 64, 88)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mraho"]
+atlas = ExtResource("2_ubhnq")
+region = Rect2(64, 0, 64, 88)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q4hg0"]
+atlas = ExtResource("2_ubhnq")
+region = Rect2(0, 88, 64, 88)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5k7ut"]
+atlas = ExtResource("2_ubhnq")
+region = Rect2(64, 88, 64, 88)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_abqhh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_je8xx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mraho")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q4hg0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5k7ut")
+}],
+"loop": true,
+"name": &"talking",
+"speed": 2.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rv78h"]
+radius = 8.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_abqhh"]
+radius = 32.0
+
+[node name="NPCGrandma" type="CharacterBody2D"]
+collision_layer = 3
+script = ExtResource("1_ubhnq")
+DialogueResource = ExtResource("2_je8xx")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0.87500024, -1.1666665)
+scale = Vector2(0.39802632, 0.3617886)
+sprite_frames = SubResource("SpriteFrames_abqhh")
+animation = &"talking"
+frame_progress = 0.4542778
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_rv78h")
+
+[node name="Actionable" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Actionable"]
+shape = SubResource("CircleShape2D_abqhh")

@@ -1,0 +1,142 @@
+[gd_scene load_steps=10 format=3 uid="uid://6fkguck4uhs2"]
+
+[ext_resource type="FontFile" uid="uid://bwh5nexelghkv" path="res://ByteBounce.ttf" id="1_wgg1a"]
+[ext_resource type="Script" uid="uid://qlcgys8aejdu" path="res://scripts/DialogueManager2.cs" id="2_6n8ev"]
+[ext_resource type="Texture2D" uid="uid://ba0kv2ub2y4lm" path="res://art/UI/ArrowUI.png" id="2_kqcxc"]
+
+[sub_resource type="Theme" id="Theme_wgg1a"]
+default_font = ExtResource("1_wgg1a")
+RichTextLabel/colors/default_color = Color(0.32156864, 0.18431373, 0.18431373, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jdjgc"]
+bg_color = Color(0.99215686, 0.9607843, 0.9019608, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.3647059, 0.2509804, 0.21568628, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="FontVariation" id="FontVariation_e3e7m"]
+base_font = ExtResource("1_wgg1a")
+
+[sub_resource type="Animation" id="Animation_6n8ev"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Panel/NextIndicator:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(566, 120)]
+}
+
+[sub_resource type="Animation" id="Animation_kqcxc"]
+resource_name = "bounce"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Panel/NextIndicator:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.43, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(566, 120), Vector2(566, 123), Vector2(566, 120)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6n8ev"]
+_data = {
+&"RESET": SubResource("Animation_6n8ev"),
+&"bounce": SubResource("Animation_kqcxc")
+}
+
+[node name="DialogUI" type="Control"]
+process_mode = 3
+visibility_layer = 512
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 272.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_wgg1a")
+script = ExtResource("2_6n8ev")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 3
+layer = 10
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+process_mode = 3
+visible = false
+light_mask = 2
+visibility_layer = 512
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = -200.0
+offset_right = -10.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_jdjgc")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Panel"]
+layout_mode = 0
+offset_right = 614.0
+offset_bottom = 168.0
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = -106
+
+[node name="DialogText" type="Label" parent="CanvasLayer/Panel/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.6770878, 0.5082484, 0.45338202, 1)
+theme_override_fonts/font = SubResource("FontVariation_e3e7m")
+theme_override_font_sizes/font_size = 35
+text = "Dialog text..."
+
+[node name="DialogSpeaker" type="Label" parent="CanvasLayer/Panel/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5686275, 0.4117647, 0.36078432, 1)
+theme_override_fonts/font = ExtResource("1_wgg1a")
+theme_override_font_sizes/font_size = 38
+text = "NPC "
+
+[node name="NextText" type="Label" parent="CanvasLayer/Panel/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5686275, 0.4117647, 0.36078432, 1)
+theme_override_fonts/font = ExtResource("1_wgg1a")
+theme_override_font_sizes/font_size = 26
+text = "Press E to continue"
+
+[node name="NextIndicator" type="TextureRect" parent="CanvasLayer/Panel"]
+process_mode = 3
+layout_mode = 0
+offset_left = 566.0
+offset_top = 120.0
+offset_right = 606.0
+offset_bottom = 160.00006
+texture = ExtResource("2_kqcxc")
+expand_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_6n8ev")
+}
+autoplay = "bounce"
